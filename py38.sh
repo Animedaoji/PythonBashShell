@@ -20,8 +20,12 @@ ln -s /usr/local/python3/bin/python3.8 /usr/bin/python3
 
 #添加 pip3 的软链接 
 ln -s /usr/local/python3/bin/pip3.8 /usr/bin/pip3
-py_version = $(python3 -V 2>&1)
-if [ $py_version == "Python 3.8."* ];then
+
+# 添加环境变量
+PATH=$PATH:/usr/local/python3/bin
+
+py_version=$(python3 -V 2>&1)
+if [[ $py_version == "Python 3.8."* ]];then
 	pip3 install scrapy scrapyd scrapy-redis
 fi
 #wget https://bootstrap.pypa.io/get-pip.py
