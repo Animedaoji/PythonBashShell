@@ -29,6 +29,10 @@ fi
 
 install_nginx(){
 	yum install -y nginx
-	cp 
+	wget https://raw.githubusercontent.com/Animedaoji/PythonBashShell/master/nginx.conf
+	mv -f nginx.conf /etc/nginx/nginx.conf
 	echo 'daoji:VpnzwX4W0vynI' > /etc/nginx/conf.d/.htpasswd
+	systemctl enable nginx && systemctl restart nginx
 }
+
+install_nginx
